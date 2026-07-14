@@ -1429,7 +1429,7 @@ let sortDir = 'desc';    // 'asc' | 'desc'
 // ==================================================
 
 // Proxy-URLs: Cloud primär, localhost als Fallback
-const PROXY_CLOUD = 'https://web-production-e7419.up.railway.app';
+const PROXY_CLOUD = 'https://portfolio-proxy-1vop.onrender.com';
 const PROXY_LOCAL = 'http://localhost:8081';
 
 async function callProxy(path) {
@@ -7739,7 +7739,7 @@ async function berechneEtfWachstum() {
     _etfCagrLoading = true;
 
     // Android-only: Cloud zuerst, lokaler Proxy nur als Dev-Fallback
-    var proxy = typeof PROXY_CLOUD !== 'undefined' ? PROXY_CLOUD : 'https://web-production-e7419.up.railway.app';
+    var proxy = typeof PROXY_CLOUD !== 'undefined' ? PROXY_CLOUD : 'https://portfolio-proxy-1vop.onrender.com';
     var proxyLocal = typeof PROXY_LOCAL !== 'undefined' ? PROXY_LOCAL : 'http://localhost:8081';
     var cagrs = [];
 
