@@ -517,43 +517,43 @@
 
         .rv-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; }
         .rv-btn  { background:transparent; border:1px solid var(--border); color:var(--text-sec);
-                   border-radius:6px; padding:4px 10px; font-size:11px; cursor:pointer; transition:all 0.15s; }
+                   border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; transition:all 0.15s; }
         .rv-btn:hover { border-color:var(--accent); color:var(--accent); }
         .rv-btn.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:600; }
         .rv-icon-btn { background:transparent; border:1px solid transparent; color:var(--text-sec);
                        border-radius:6px; width:28px; height:28px; display:inline-flex; align-items:center;
-                       justify-content:center; font-size:14px; cursor:pointer; transition:all 0.15s; }
+                       justify-content:center; font-size:15px; cursor:pointer; transition:all 0.15s; }
         .rv-icon-btn:hover { border-color:var(--accent); color:var(--accent); background:rgba(198,241,53,0.05); }
         @media (max-width: 768px) {
             .col-hide-mobile { display:none !important; }
         }
 
         .rv-input { background:#1a1a1a; border:1px solid var(--border); border-radius:8px;
-                    padding:10px; color:var(--text); width:100%; font-size:14px; }
+                    padding:10px; color:var(--text); width:100%; font-size:15px; }
         .rv-input:focus { outline:none; border-color:var(--accent); }
 
         table { border-collapse:collapse; width:100%; }
         thead tr { border-bottom:1px solid var(--border); }
         tbody tr { border-bottom:1px solid #161616; transition:background 0.15s; }
         tbody tr:hover { background:#161616; }
-        th { color:var(--text-sec); font-size:11px; font-weight:500; text-transform:uppercase;
+        th { color:var(--text-sec); font-size:12px; font-weight:500; text-transform:uppercase;
              letter-spacing:0.08em; padding:12px 16px; }
-        td { padding:14px 16px; font-size:13px; }
+        td { padding:14px 16px; font-size:14px; }
 
-        .kpi-label { font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-sec); }
+        .kpi-label { font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-sec); }
         .kpi-value { font-size:28px; font-weight:700; margin-top:6px; }
-        .badge-live { font-size:9px; font-weight:700; background:rgba(198,241,53,0.15);
+        .badge-live { font-size:10px; font-weight:700; background:rgba(198,241,53,0.15);
                       color:var(--accent); border-radius:4px; padding:2px 6px; margin-left:6px; }
-        .badge-manual { font-size:9px; font-weight:700; background:#222; color:var(--text-sec);
+        .badge-manual { font-size:10px; font-weight:700; background:#222; color:var(--text-sec);
                         border-radius:4px; padding:2px 6px; margin-left:6px; }
-        .badge-error { font-size:9px; font-weight:700; background:rgba(255,68,68,0.15);
+        .badge-error { font-size:10px; font-weight:700; background:rgba(255,68,68,0.15);
                        color:var(--red); border-radius:4px; padding:2px 6px; margin-left:6px; cursor:pointer; }
 
         .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.85);
                          display:flex; align-items:center; justify-content:center; z-index:50; }
         .modal-box { background:#111; border:1px solid #222; border-radius:16px;
                      padding:28px; width:100%; max-width:440px; }
-        .modal-title { font-size:18px; font-weight:700; margin-bottom:20px; }
+        .modal-title { font-size:19px; font-weight:700; margin-bottom:20px; }
 
         .perf-positive { color:var(--accent); }
         .perf-negative { color:var(--red); }
@@ -567,7 +567,7 @@
             border: none;
             border-bottom: 2px solid transparent;
             color: var(--text-sec);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             padding: 10px 18px;
             cursor: pointer;
@@ -580,15 +580,25 @@
 
         .tab-section { display: none; }
         .tab-section.active { display: block; }
+
+        /* Aufteilung nach Kategorien: lesbare Listen-Alternative (Mobile) */
+        .kat-mobile-list { display: none; }
+        .kat-row { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid #161616; }
+        .kat-row:last-child { border-bottom:none; }
+        .kat-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+        .kat-name { flex:1; font-size:13px; color:var(--text); font-weight:500; }
+        .kat-share { font-size:11px; color:var(--text-sec); min-width:40px; text-align:right; }
+        .kat-value { font-size:13px; font-weight:600; color:var(--text); min-width:92px; text-align:right; }
+        .kat-pl { font-size:11px; font-weight:600; min-width:66px; text-align:right; }
     </style>
 <style>
 @media (max-width: 768px) {
     /* Tab-Labels kürzer */
     #tab-gesamt::after      { content: ''; }
-    #tab-wertpapiere        { font-size: 11px; padding: 8px 10px; }
-    #tab-krypto             { font-size: 11px; padding: 8px 10px; }
-    #tab-banken             { font-size: 11px; padding: 8px 10px; }
-    #tab-muenzen            { font-size: 11px; padding: 8px 10px; }
+    #tab-wertpapiere        { font-size: 12px; padding: 8px 10px; }
+    #tab-krypto             { font-size: 12px; padding: 8px 10px; }
+    #tab-banken             { font-size: 12px; padding: 8px 10px; }
+    #tab-muenzen            { font-size: 12px; padding: 8px 10px; }
 
     /* Gesamt: nur Position, Kategorie, Gesamtwert, G/V */
     #gesamt-table-body tr td:nth-child(4),
@@ -636,7 +646,7 @@
 
     /* KPI Grid auf mobile: 1 Spalte */
     .rv-card { padding: 12px 14px !important; }
-    .kpi-value { font-size: 20px !important; }
+    .kpi-value { font-size: 21px !important; }
     [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:2fr 1fr"]  { grid-template-columns: 1fr !important; }
@@ -662,26 +672,29 @@
         grid-template-columns: 1fr !important;
     }
     /* perfChart höher auf Mobile */
-    #perfChart { height: 140px !important; }
-    #historyChart { height: 120px !important; }
+    #perf-chart-wrap { height: 170px !important; }
 
     /* Tabellen kompakter */
-    td, th { padding: 8px 8px !important; font-size: 11px !important; }
-    .rv-icon-btn { width: 24px !important; height: 24px !important; font-size: 12px !important; }
-    .badge-live, .badge-manual, .badge-error { font-size: 8px !important; padding: 1px 4px !important; }
+    td, th { padding: 8px 8px !important; font-size: 12px !important; }
+    .rv-icon-btn { width: 26px !important; height: 26px !important; font-size: 13px !important; }
+    .badge-live, .badge-manual, .badge-error { font-size: 9px !important; padding: 1px 4px !important; }
 
     /* Header kompakter */
     header { flex-direction: column !important; gap: 8px !important; }
-    #price-status { font-size: 10px !important; }
-    h1 { font-size: 18px !important; }
+    #price-status { font-size: 11px !important; }
+    h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 11px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
 
     /* Charts auf Mobile */
-    #perfChart, #historyChart,
-    #wpHistoryChart, #cryptoHistoryChart,
-    #muenzenHistoryChart, #bankHistoryChart { height: 160px !important; }
+    #wp-history-chart-wrap, #crypto-history-chart-wrap,
+    #muenzen-history-chart-wrap, #bank-history-chart-wrap,
+    #gesamt-wp-chart-wrap, #gesamt-crypto-chart-wrap, #gesamt-muenzen-chart-wrap { height: 180px !important; }
+
+    /* Aufteilung nach Kategorien: lesbare Liste statt Balken-Chart auf Mobile */
+    #kat-chart-wrap { display: none !important; }
+    .kat-mobile-list { display: block !important; }
 
     /* Overflow verhindern */
     body { overflow-x: hidden !important; }
@@ -691,10 +704,10 @@
 @media (max-width: 768px) {
     /* Tab-Labels kürzer */
     #tab-gesamt::after      { content: ''; }
-    #tab-wertpapiere        { font-size: 11px; padding: 8px 10px; }
-    #tab-krypto             { font-size: 11px; padding: 8px 10px; }
-    #tab-banken             { font-size: 11px; padding: 8px 10px; }
-    #tab-muenzen            { font-size: 11px; padding: 8px 10px; }
+    #tab-wertpapiere        { font-size: 12px; padding: 8px 10px; }
+    #tab-krypto             { font-size: 12px; padding: 8px 10px; }
+    #tab-banken             { font-size: 12px; padding: 8px 10px; }
+    #tab-muenzen            { font-size: 12px; padding: 8px 10px; }
 
     /* Gesamt: nur Position, Kategorie, Gesamtwert, G/V */
     #gesamt-table-body tr td:nth-child(4),
@@ -742,7 +755,7 @@
 
     /* KPI Grid auf mobile: 1 Spalte */
     .rv-card { padding: 12px 14px !important; }
-    .kpi-value { font-size: 20px !important; }
+    .kpi-value { font-size: 21px !important; }
     [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:2fr 1fr"]  { grid-template-columns: 1fr !important; }
@@ -768,26 +781,29 @@
         grid-template-columns: 1fr !important;
     }
     /* perfChart höher auf Mobile */
-    #perfChart { height: 140px !important; }
-    #historyChart { height: 120px !important; }
+    #perf-chart-wrap { height: 170px !important; }
 
     /* Tabellen kompakter */
-    td, th { padding: 8px 8px !important; font-size: 11px !important; }
-    .rv-icon-btn { width: 24px !important; height: 24px !important; font-size: 12px !important; }
-    .badge-live, .badge-manual, .badge-error { font-size: 8px !important; padding: 1px 4px !important; }
+    td, th { padding: 8px 8px !important; font-size: 12px !important; }
+    .rv-icon-btn { width: 26px !important; height: 26px !important; font-size: 13px !important; }
+    .badge-live, .badge-manual, .badge-error { font-size: 9px !important; padding: 1px 4px !important; }
 
     /* Header kompakter */
     header { flex-direction: column !important; gap: 8px !important; }
-    #price-status { font-size: 10px !important; }
-    h1 { font-size: 18px !important; }
+    #price-status { font-size: 11px !important; }
+    h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 11px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
 
     /* Charts auf Mobile */
-    #perfChart, #historyChart,
-    #wpHistoryChart, #cryptoHistoryChart,
-    #muenzenHistoryChart, #bankHistoryChart { height: 160px !important; }
+    #wp-history-chart-wrap, #crypto-history-chart-wrap,
+    #muenzen-history-chart-wrap, #bank-history-chart-wrap,
+    #gesamt-wp-chart-wrap, #gesamt-crypto-chart-wrap, #gesamt-muenzen-chart-wrap { height: 180px !important; }
+
+    /* Aufteilung nach Kategorien: lesbare Liste statt Balken-Chart auf Mobile */
+    #kat-chart-wrap { display: none !important; }
+    .kat-mobile-list { display: block !important; }
 
     /* Overflow verhindern */
     body { overflow-x: hidden !important; }
@@ -878,7 +894,7 @@
             </div>
             <span id="perf-value" style="display:none;"></span>
             <span id="perf-pct" style="display:none;"></span>
-            <div style="height:120px;"><canvas id="perfChart" width="531" height="120"></canvas></div>
+            <div id="perf-chart-wrap" style="height:120px;"><canvas id="perfChart" width="531" height="120"></canvas></div>
         </div>
     </div>
 
@@ -893,21 +909,21 @@
                 <span class="kpi-label" style="font-size:10px;">📈 Wertpapiere</span>
                 <span id="gesamt-wp-pct" style="font-size:11px;font-weight:700;"></span>
             </div>
-            <div style="height:130px;"><canvas id="gesamt-wp-chart"></canvas></div>
+            <div id="gesamt-wp-chart-wrap" style="height:130px;"><canvas id="gesamt-wp-chart"></canvas></div>
         </div>
         <div class="rv-card" style="padding:14px 16px;">
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
                 <span class="kpi-label" style="font-size:10px;">₿ Krypto</span>
                 <span id="gesamt-crypto-pct" style="font-size:11px;font-weight:700;"></span>
             </div>
-            <div style="height:130px;"><canvas id="gesamt-crypto-chart"></canvas></div>
+            <div id="gesamt-crypto-chart-wrap" style="height:130px;"><canvas id="gesamt-crypto-chart"></canvas></div>
         </div>
         <div class="rv-card" style="padding:14px 16px;">
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
                 <span class="kpi-label" style="font-size:10px;">🪙 Münzen</span>
                 <span id="gesamt-muenzen-pct" style="font-size:11px;font-weight:700;"></span>
             </div>
-            <div style="height:130px;"><canvas id="gesamt-muenzen-chart"></canvas></div>
+            <div id="gesamt-muenzen-chart-wrap" style="height:130px;"><canvas id="gesamt-muenzen-chart"></canvas></div>
         </div>
     </div>
     <!-- Hidden: G/V Heute KPI (IDs behalten für JS-Kompatibilität) -->
@@ -918,9 +934,10 @@
     <!-- Charts Row 2: Kategorien-Balken + Legende -->
     <div class="rv-card" style="padding:20px;margin-bottom:24px;">
         <span class="kpi-label" style="display:block;margin-bottom:16px;">Aufteilung nach Kategorien</span>
-        <div style="display:flex;justify-content:center;height:220px;padding:0 20px;">
+        <div id="kat-chart-wrap" style="display:flex;justify-content:center;height:220px;padding:0 20px;">
             <canvas id="portfolioChart" style="box-sizing: border-box; display: block; height: 220px; width: 978px;" width="978" height="220"></canvas>
         </div>
+        <div id="kat-mobile-list" class="kat-mobile-list"></div>
     </div>
 
 
@@ -983,7 +1000,7 @@
                     <button onclick="setWpHistoryRange(&#39;MAX&#39;)" id="wp-btn-MAX" class="rv-btn wp-range-btn">MAX</button>
                 </div>
             </div>
-            <div style="height:140px;"><canvas id="wpHistoryChart"></canvas></div>
+            <div id="wp-history-chart-wrap" style="height:140px;"><canvas id="wpHistoryChart"></canvas></div>
         </div>
 
         <div class="rv-card" style="overflow:hidden;"><div style="overflow-x:auto;">
@@ -1052,7 +1069,7 @@
                     <button onclick="setCryptoHistoryRange(&#39;MAX&#39;)" id="crypto-btn-MAX" class="rv-btn crypto-range-btn">MAX</button>
                 </div>
             </div>
-            <div style="height:140px;"><canvas id="cryptoHistoryChart"></canvas></div>
+            <div id="crypto-history-chart-wrap" style="height:140px;"><canvas id="cryptoHistoryChart"></canvas></div>
         </div>
 
         <div class="rv-card" style="overflow:hidden;"><div style="overflow-x:auto;">
@@ -1108,7 +1125,7 @@
                     <button onclick="setBankHistoryRange(&#39;MAX&#39;)" id="bank-btn-MAX" class="rv-btn bank-range-btn">MAX</button>
                 </div>
             </div>
-            <div style="height:140px;"><canvas id="bankHistoryChart"></canvas></div>
+            <div id="bank-history-chart-wrap" style="height:140px;"><canvas id="bankHistoryChart"></canvas></div>
         </div>
 
         <!-- Tabelle -->
@@ -2837,7 +2854,7 @@ if ('Notification' in window && Notification.permission === 'default') {
                     <button onclick="setMuenzenHistoryRange(&#39;MAX&#39;)" id="muenzen-btn-MAX" class="rv-btn muenzen-range-btn">MAX</button>
                 </div>
             </div>
-            <div style="height:140px;"><canvas id="muenzenHistoryChart"></canvas></div>
+            <div id="muenzen-history-chart-wrap" style="height:140px;"><canvas id="muenzenHistoryChart"></canvas></div>
         </div>
 
         <div class="rv-card" style="overflow:hidden;"><div style="overflow-x:auto;">
@@ -5760,10 +5777,10 @@ mobileStyle.textContent = `
 @media (max-width: 768px) {
     /* Tab-Labels kürzer */
     #tab-gesamt::after      { content: ''; }
-    #tab-wertpapiere        { font-size: 11px; padding: 8px 10px; }
-    #tab-krypto             { font-size: 11px; padding: 8px 10px; }
-    #tab-banken             { font-size: 11px; padding: 8px 10px; }
-    #tab-muenzen            { font-size: 11px; padding: 8px 10px; }
+    #tab-wertpapiere        { font-size: 12px; padding: 8px 10px; }
+    #tab-krypto             { font-size: 12px; padding: 8px 10px; }
+    #tab-banken             { font-size: 12px; padding: 8px 10px; }
+    #tab-muenzen            { font-size: 12px; padding: 8px 10px; }
 
     /* Gesamt: nur Position, Kategorie, Gesamtwert, G/V */
     #gesamt-table-body tr td:nth-child(4),
@@ -5811,7 +5828,7 @@ mobileStyle.textContent = `
 
     /* KPI Grid auf mobile: 1 Spalte */
     .rv-card { padding: 12px 14px !important; }
-    .kpi-value { font-size: 20px !important; }
+    .kpi-value { font-size: 21px !important; }
     [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
     [style*="grid-template-columns:2fr 1fr"]  { grid-template-columns: 1fr !important; }
@@ -5837,26 +5854,29 @@ mobileStyle.textContent = `
         grid-template-columns: 1fr !important;
     }
     /* perfChart höher auf Mobile */
-    #perfChart { height: 140px !important; }
-    #historyChart { height: 120px !important; }
+    #perf-chart-wrap { height: 170px !important; }
 
     /* Tabellen kompakter */
-    td, th { padding: 8px 8px !important; font-size: 11px !important; }
-    .rv-icon-btn { width: 24px !important; height: 24px !important; font-size: 12px !important; }
-    .badge-live, .badge-manual, .badge-error { font-size: 8px !important; padding: 1px 4px !important; }
+    td, th { padding: 8px 8px !important; font-size: 12px !important; }
+    .rv-icon-btn { width: 26px !important; height: 26px !important; font-size: 13px !important; }
+    .badge-live, .badge-manual, .badge-error { font-size: 9px !important; padding: 1px 4px !important; }
 
     /* Header kompakter */
     header { flex-direction: column !important; gap: 8px !important; }
-    #price-status { font-size: 10px !important; }
-    h1 { font-size: 18px !important; }
+    #price-status { font-size: 11px !important; }
+    h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 11px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
 
     /* Charts auf Mobile */
-    #perfChart, #historyChart,
-    #wpHistoryChart, #cryptoHistoryChart,
-    #muenzenHistoryChart, #bankHistoryChart { height: 160px !important; }
+    #wp-history-chart-wrap, #crypto-history-chart-wrap,
+    #muenzen-history-chart-wrap, #bank-history-chart-wrap,
+    #gesamt-wp-chart-wrap, #gesamt-crypto-chart-wrap, #gesamt-muenzen-chart-wrap { height: 180px !important; }
+
+    /* Aufteilung nach Kategorien: lesbare Liste statt Balken-Chart auf Mobile */
+    #kat-chart-wrap { display: none !important; }
+    .kat-mobile-list { display: block !important; }
 
     /* Overflow verhindern */
     body { overflow-x: hidden !important; }
@@ -7369,6 +7389,28 @@ updateKategorienDonut();
 // KAT_COLORS um Bank/Versicherung erweitern
 if (typeof KAT_COLORS !== 'undefined') KAT_COLORS['Bank/Versicherung'] = '#2ECC71';
 
+function renderKatMobileList(data, total) {
+    var box = document.getElementById('kat-mobile-list');
+    if (!box) return;
+    var fmtE = typeof formatEUR === 'function' ? formatEUR : function(v){ return v.toFixed(0) + ' \u20ac'; };
+    var rows = data.labels.map(function(label, j) {
+        var val = data.values[j];
+        var inv = data.invested[j] || 0;
+        var pct = total > 0 ? (val/total*100).toFixed(1) : '0.0';
+        var pl  = inv > 0 ? ((val-inv)/inv*100) : null;
+        var plStr   = pl !== null ? (pl>=0?'+':'') + pl.toFixed(1) + '%' : '\u2013';
+        var plColor = pl !== null ? (pl>=0?'#C6F135':'#FF4444') : '#555';
+        return '<div class="kat-row">' +
+            '<span class="kat-dot" style="background:' + data.colors[j] + ';"></span>' +
+            '<span class="kat-name">' + label + '</span>' +
+            '<span class="kat-share">' + pct + '%</span>' +
+            '<span class="kat-value">' + fmtE(val) + '</span>' +
+            '<span class="kat-pl" style="color:' + plColor + ';">' + plStr + '</span>' +
+        '</div>';
+    }).join('');
+    box.innerHTML = rows;
+}
+
 function updateKategorienDonut() {
     var canvas = document.getElementById('portfolioChart');
     if (!canvas) return;
@@ -7388,6 +7430,7 @@ function updateKategorienDonut() {
 
     // Balken-Chart statt Donut, absteigend sortiert
     var total = data.values.reduce(function(a,b){ return a+b; },0);
+    renderKatMobileList(data, total);
 
     // Investierte Farben = gleiche Farbe aber dunkler
     var investedColors = data.colors.map(function(c) {
@@ -8042,7 +8085,7 @@ function renderFinanzplan() {
         }
     }
     var fmt0 = typeof formatEUR === 'function' ? formatEUR : function(v){ return v.toFixed(0) + ' €'; };
-    if (el('fk-div-total')) el('fk-div-total').textContent = fmt0(div);
+    if (el('fk-div-total') && !_hasPerStock) el('fk-div-total').textContent = fmt0(divWert);
     // ETF Wachstum Info
     var etfInfoEl = el('fk-etf-wachstum-info');
     if (etfInfoEl) {
