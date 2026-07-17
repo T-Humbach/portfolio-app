@@ -2356,7 +2356,7 @@ async function loadFromCloud() {
     // Funktionen, die diese Felder sonst erst beim naechsten Tab-Wechsel nachgeladen
     // haetten.
     try {
-        const res2 = await fetch(PROXY_CLOUD + '/load', { signal: AbortSignal.timeout(8000) });
+        const res2 = await fetch(PROXY_CLOUD + '/load', { signal: AbortSignal.timeout(45000) });
         if (!res2.ok) throw new Error('HTTP ' + res2.status);
         const data2 = await res2.json();
         if (data2.portfolio && Array.isArray(data2.portfolio) && data2.portfolio.length > 0) {
@@ -2754,8 +2754,9 @@ if ('Notification' in window && Notification.permission === 'default') {
 }
 
 // Alles in einer Sequenz: Cloud laden → FX → Kurse
+window._initialLoadDone = false;
 (async function() {
-    setStatus('loading', 'Lade Daten...');
+    setStatus('loading', 'Server startet ggf. neu (bis 45s)...');
 
     // 1. Daten aus Cloud laden
     // Ausstehende Saves nachholen (falls letztes Speichern fehlgeschlagen)
@@ -2764,6 +2765,11 @@ if ('Notification' in window && Notification.permission === 'default') {
     if (!cloudLoaded) {
         console.log('Kein Cloud-Daten, nutze localStorage');
     }
+    // Ab hier ist der lokale Zustand verbindlich (Cloud geladen oder bewusst
+    // uebersprungen) -- saveToCloud() darf erst jetzt scharf geschaltet werden,
+    // sonst wuerde ein verfruehter Save (z.B. Migrations-Timer) die echten
+    // Cloud-Daten mit dem noch leeren Startzustand ueberschreiben.
+    window._initialLoadDone = true;
 
     // Rückwärtskompatibilität
     portfolio.forEach(s => {
@@ -3595,7 +3601,7 @@ window.loadFromCloud = async function() {
     var result = await _origLoadFromCloud();
     // wpVerkaeufe aus Cloud laden falls vorhanden
     try {
-        var res = await fetch(PROXY_CLOUD + '/load', { signal: AbortSignal.timeout(8000) });
+        var res = await fetch(PROXY_CLOUD + '/load', { signal: AbortSignal.timeout(45000) });
         if (res.ok) {
             var d = await res.json();
             if (d.wpVerkaeufe && Array.isArray(d.wpVerkaeufe) && d.wpVerkaeufe.length > 0) {
@@ -3650,8 +3656,13 @@ function migrateExistingVerkaeufe() {
     localStorage.setItem('vibe_verkaeufe_migrated', '1');
 }
 
-// Nach App-Start ausführen
-setTimeout(migrateExistingVerkaeufe, 2000);
+// Nach App-Start ausführen -- wartet auf den echten Cloud-Load (statt fixer
+// 2s-Verzoegerung), damit bei langsamem Server-Kaltstart nicht mit einem noch
+// leeren Portfolio migriert (und faelschlich als 'erledigt' markiert) wird.
+(function waitForLoadThenMigrate(){
+    if (window._initialLoadDone) { migrateExistingVerkaeufe(); }
+    else setTimeout(waitForLoadThenMigrate, 300);
+})();
 
 </script>
 
@@ -4307,6 +4318,10 @@ window.openModal = function(type, id) {
 // Wartezeit auf einen ohnehin nie erreichbaren localhost-Timeout).
 var _origSaveToCloud = window.saveToCloud;
 window.saveToCloud = async function() {
+    if (!window._initialLoadDone) {
+        console.warn('saveToCloud uebersprungen: initialer Cloud-Load laeuft noch (verhindert Ueberschreiben mit leerem Startzustand).');
+        return { saved: false, skipped: true, reason: 'initial-load-pending' };
+    }
     var savedAt = new Date().toISOString();
     var data = {
         portfolio:    portfolio,
