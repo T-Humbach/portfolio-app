@@ -685,7 +685,17 @@
     h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; flex: 0 0 auto !important; }
+
+    /* Tab-Leiste: horizontal scrollbar statt breiter als der Rest der Seite */
+    #tab-bar {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 100% !important;
+    }
+    #tab-bar::-webkit-scrollbar { display: none !important; height: 0 !important; }
 
     /* Charts auf Mobile */
     #wp-history-chart-wrap, #crypto-history-chart-wrap,
@@ -794,7 +804,17 @@
     h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; flex: 0 0 auto !important; }
+
+    /* Tab-Leiste: horizontal scrollbar statt breiter als der Rest der Seite */
+    #tab-bar {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 100% !important;
+    }
+    #tab-bar::-webkit-scrollbar { display: none !important; height: 0 !important; }
 
     /* Charts auf Mobile */
     #wp-history-chart-wrap, #crypto-history-chart-wrap,
@@ -835,7 +855,7 @@
     </header>
 
     <!-- Tab Navigation -->
-    <div style="display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:0;">
+    <div id="tab-bar" style="display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:0;">
         
         
         
@@ -5882,7 +5902,17 @@ mobileStyle.textContent = `
     h1 { font-size: 19px !important; }
 
     /* Tab-Buttons kompakter */
-    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; }
+    .tab-btn { padding: 8px 10px !important; font-size: 12px !important; flex: 0 0 auto !important; }
+
+    /* Tab-Leiste: horizontal scrollbar statt breiter als der Rest der Seite */
+    #tab-bar {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: 100% !important;
+    }
+    #tab-bar::-webkit-scrollbar { display: none !important; height: 0 !important; }
 
     /* Charts auf Mobile */
     #wp-history-chart-wrap, #crypto-history-chart-wrap,
